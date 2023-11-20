@@ -65,5 +65,4 @@ public class MainActivity extends AppCompatActivity {
         String strStr = String.valueOf(res);
         txtResult.setText(strStr);
     }
-
 }
