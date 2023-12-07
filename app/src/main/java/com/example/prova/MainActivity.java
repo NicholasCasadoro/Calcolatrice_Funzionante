@@ -36,34 +36,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void calcola(View v)
+   public void calcola(View v)
     {
         String strNum1 = number1.getText().toString();
         String strNum2 = number2.getText().toString();
         String oper = operando.getText().toString();
-
-        int n1 = Integer.parseInt(strNum1);
-        int n2 = Integer.parseInt(strNum2);
-        int res=0;
-        if(oper.equals("+")){
-             res = n1 + n2 ;
+        if(oper.equals("+") || oper.equals("-") || oper.equals("/") || oper.equals("*")) {
+            int res = 0;
+            if (oper.equals("+")) {
+                int n1 = Integer.parseInt(strNum1);
+                int n2 = Integer.parseInt(strNum2);
+                res = n1 + n2;
+            } else if (oper.equals("-")) {
+                int n1 = Integer.parseInt(strNum1);
+                int n2 = Integer.parseInt(strNum2);
+                res = n1 - n2;
+            } else if (oper.equals("*")) {
+                int n1 = Integer.parseInt(strNum1);
+                int n2 = Integer.parseInt(strNum2);
+                res = n1 * n2;
+            } else if (oper.equals("/")) {
+                int n1 = Integer.parseInt(strNum1);
+                int n2 = Integer.parseInt(strNum2);
+                res = n1 / n2;
+            }
             String strStr = String.valueOf(res);
             txtResult.setText(strStr);
+        }else{
+            String error = String.valueOf("Operando Errato");
+            txtResult.setText(error);
         }
-        else if(oper.equals("-")){
-             res = n1 - n2 ;
-            String strStr = String.valueOf(res);
-            txtResult.setText(strStr);
-        }
-        else if(oper.equals("*")){
-             res = n1 * n2 ;
-            String strStr = String.valueOf(res);
-        }
-        else if(oper.equals("/")){
-             res = n1 / n2 ;
-        }
-        String strStr = String.valueOf(res);
-        txtResult.setText(strStr);
     }
-
 }
